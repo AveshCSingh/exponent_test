@@ -8,27 +8,51 @@ import {
 } from 'react-native';
 
 class App extends React.Component {
-		_onPressButton() {
+		_incrementCounter() {
 			this.setState({count: this.state.count + 1})
+		}
+
+		_resetCounter() {
+				this.setState({count: 0})
 		}
 
 		constructor(props) {
 				super(props)
 				this.state = {count: 0};
-				this._onPressButton = this._onPressButton.bind(this, this.state.count);
+				this._incrementCounter = this._incrementCounter.bind(this, this.state.count);
+				this._resetCounter = this._resetCounter.bind(this, this.state.count);
 		}
   render() {
     return (
+				<View style={{flex: 1}}>
 						<View style={styles.container}>
-						<TouchableHighlight onPress={this._onPressButton}>
-						<Text>Nose goes here. {this.state.count}</Text>
-						</TouchableHighlight>
+  						<TouchableHighlight onPress={this._incrementCounter}>
+	  				  	<View style={{width: 250, height: 250, alignItems: 'center', justifyContent: 'center'}}>
+		    			  	<Text style={[styles.bigred]}>{this.state.count}</Text>
+				  		  </View>
+					  	</TouchableHighlight>
 						</View>
+						<View style={styles.bottom}> 
+  						<TouchableHighlight onPress={this._resetCounter}>
+     						<Text style={{fontSize: 25}}> Reset </Text>
+						  </TouchableHighlight>
+	    			</View>
+				</View>
+// </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+		bigred: {
+				color: 'red',
+				fontWeight: 'bold',
+				fontSize: 100,
+		},
+		bottom: {
+				bottom: 0,
+				right: 0,
+		},
   container: {
     flex: 1,
     backgroundColor: '#fff',
