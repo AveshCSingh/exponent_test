@@ -26,7 +26,7 @@ class App extends React.Component {
     return (
 				<View style={{flex: 1}}>
 						<View style={styles.container}>
-  						<TouchableHighlight onPress={this._incrementCounter}>
+  						<TouchableHighlight onPressIn={this._incrementCounter}>
 	  				  	<View style={{width: 250, height: 250, alignItems: 'center', justifyContent: 'center'}}>
 		    			  	<Text style={[styles.bigred]}>{this.state.count}</Text>
 				  		  </View>
@@ -38,7 +38,6 @@ class App extends React.Component {
 						  </TouchableHighlight>
 	    			</View>
 				</View>
-// </View>
     );
   }
 }
